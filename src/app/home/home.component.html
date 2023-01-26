@@ -1,0 +1,25 @@
+<app-header></app-header>
+<div class="container-fluid bg-light">
+  <div class="container-fluid text-center bg-light border"><h1><span
+        style="color:black;font-family: cursive;">Our Popular Products</span></h1></div>
+  <ul>
+    <li *ngFor="let product of Product.products">
+      <a routerLink="/product/{{product.id}}">
+        <img src="{{product.thumbnail}}">
+        <div class="content">
+          <div class="name">
+            {{product.title}}
+          </div>
+          <div class="row mt-3">
+            <div class="col-sm-6">
+              <button class="btn btn-primary">Add</button>
+            </div>
+            <div class="col-sm-6">
+              <button class="btn btn-warning">Edit</button>
+            </div>
+          </div>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>
