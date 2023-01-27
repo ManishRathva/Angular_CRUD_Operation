@@ -14,6 +14,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {FormsModule} from '@angular/forms';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +23,7 @@ import {FormsModule} from '@angular/forms';
     HomeComponent,
     ProductComponent,
     SearchComponent,
+
   ],
   imports: [
     BrowserModule,

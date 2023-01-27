@@ -13,3 +13,9 @@ export class product
   images!:string;
   products: any;
 }
+export class newProduct
+{
+  id!:number;
+  title!:string;
+  thumbnail!:string;
+}
