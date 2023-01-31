@@ -1,13 +1,16 @@
 *{
   text-decoration:none;
 }
-
 .imges{
   margin-top:1.7rem;
   height:3.5rem;
   border-radius:0;
   width:10rem;
   border: solid black 2px;
+}
+.imges:hover{
+  cursor: pointer;
+  height:10rem;
 }
 strong{
   color:blue

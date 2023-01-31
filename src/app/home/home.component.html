@@ -8,8 +8,7 @@
   </div>
 
   <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1"
-    aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="exampleModal">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -20,11 +19,11 @@
         <div class="row">
           <div class="col-lg-12">
           <form>
-            <div class="form-outline mb-4">
-              <img [src]="url" height="1rem" width="30px">
+            <div class="mb-4 m-5">
+              <img [src]="url" height="100px" width="100px">
               <input type="file" (change)="onselectFile($event)" class="form-control" #thumbnail>
             </div>
-            <div class="form-outline mb-4">
+            <div class="mb-4">
               <input type="text"  class="form-control" placeholder="Enter Title" #title>
             </div>
           </form>
@@ -43,7 +42,7 @@
   <div class="container-fluid text-center bg-light border"><h1><span
         style="color:black;font-family: cursive;">Our Popular Products</span></h1></div>
   <ul>
-    <li *ngFor="let product of Product.products;">
+    <li *ngFor="let product of Product.products;  let i = index;">
       <div>
         <a>
           <img  routerLink="/product/{{product.id}}" src="{{product.thumbnail}}">
@@ -53,10 +52,11 @@
             </div>
             <div class="row mt-3">
               <div class="col-sm-6">
-                <button routerLink="/editdata" class="btn btn-primary btn-lg">Edit</button>
+                <button class="btn btn-primary btn-lg btn btn-lg btn-warning" data-bs-toggle="modal"
+                data-bs-target="#editModal">Edit</button>
               </div>
               <div class="col-sm-6">
-                <button class="btn btn-danger btn-lg">delete</button>
+                <button class="btn btn-danger btn-lg" (click)="deleteData(i)">delete</button>
               </div>
             </div>
           </div>
@@ -64,28 +64,33 @@
       </div>
     </li>
   </ul>
-  <div class="container-fluid text-center bg-light"></div>
-  <ul>
-    <li *ngFor="let item of newData,index as i">
-      <div routerLink="/product/{{item.id}}">
-        <a>
-          <img src="{{item.thumbnail}}">
-
-          <div class="content">
-            <div class="name">
-              {{item.title}}
+  <div class="modal fade" id="editModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">update Product</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"
+            aria-label="Close"></button>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+          <form>
+            <div class="mb-4 m-5">
+              <img [src]="url" height="100px" width="100px">
+              <input type="file" (change)="onselectFile($event)" class="form-control" #thumbnail>
             </div>
-            <div class="row mt-3">
-              <div class="col-sm-6">
-                <button routerLink="/editdata" class="btn btn-primary btn-lg">Edit</button>
-              </div>
-              <div class="col-sm-6">
-                <button class="btn btn-danger btn-lg">Delete</button>
-              </div>
+            <div class="mb-4">
+              <input type="text"  class="form-control" placeholder="Enter Title" #title>
             </div>
-          </div>
-        </a>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary"
+            data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-warning" (click)="updateData(title.value,thumbnail.value)">Update Data</button>
+        </div>
       </div>
-    </li>
-  </ul>
+      </div>
+    </div>
+  </div>
 </div>

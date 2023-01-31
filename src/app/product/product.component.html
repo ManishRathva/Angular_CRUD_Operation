@@ -1,17 +1,17 @@
 <app-header></app-header>
-<div class="container text-center border">
-  <h3>Product Details</h3>
+<div class="container text-center mt-0">
+  <h5>Product Details</h5>
 </div>
-<div class="row border border-dark shadow rounded m-3">
+<div class="row border border-dark shadow rounded m-3 mt-0">
 <div *ngIf="Product" class="container col-lg-3 text-center">
     <img [src]="Product.thumbnail" [alt]="Product.title">
 </div>
 <div class="col-lg-3">
-  <div  *ngFor="let img of Product.images">
+  <div *ngFor="let img of Product.images">
    <img class="imges" src="{{img}}">
   </div>
 </div>
-   <div class="details col-lg-6">
+<div class="details col-lg-6">
       <div class="header">
         <span class="name">
         <p><strong>Title :</strong> {{Product.title}}</p>
@@ -45,6 +45,7 @@
       </div>
       <div>
         <span>
+
         <p> <strong>category :</strong> {{Product.category}}</p>
         </span>
       </div>
@@ -52,6 +53,6 @@
       <br>
       <button style="background-color:green;" routerLink="/">Back To Home</button>
     </div>
+  </div>
 
-</div>
 

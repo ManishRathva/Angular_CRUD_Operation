@@ -1,5 +1,7 @@
-export class product
-{
+export class product {
+  static splice(productId: number) {
+    throw new Error('Method not implemented.');
+  }
   id!:number;
   title!:string;
   description!:string;
@@ -12,10 +14,4 @@ export class product
   thumbnail!:string;
   images!:string;
   products: any;
-}
-export class newProduct
-{
-  id!:number;
-  title!:string;
-  thumbnail!:string;
 }
