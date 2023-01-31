@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 import { ProductService } from '../services/product.service';
-import { newProduct, product } from '../shared/models/product';
+import {product } from '../shared/models/product';
 
 @Component({
   selector: 'app-home',
@@ -9,6 +8,7 @@ import { newProduct, product } from '../shared/models/product';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit{
+url='';
 newData :any[] = [];
 Product : product['products'] = [];
  constructor (private productService:ProductService){
@@ -21,5 +21,15 @@ ngOnInit(): void {
 }
 addData(name:any,image:any){
 this.newData.push({thumbnail:image,title:name});
+
+}
+onselectFile(e:any){
+if(e.target.files){
+  let reader = new FileReader();
+  reader.readAsDataURL(e.target.files[0]);
+  reader.onload = (event:any)=>{
+    this.url = event.target.result;
+  }
+}
 }
 }

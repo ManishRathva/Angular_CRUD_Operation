@@ -17,11 +17,12 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal"
             aria-label="Close"></button>
         </div>
-        <div class="modal-body row">
-          <div class="col-lg-3">
+        <div class="row">
+          <div class="col-lg-12">
           <form>
             <div class="form-outline mb-4">
-              <input type="file"  class="form-control" #thumbnail>
+              <img [src]="url" height="1rem" width="30px">
+              <input type="file" (change)="onselectFile($event)" class="form-control" #thumbnail>
             </div>
             <div class="form-outline mb-4">
               <input type="text"  class="form-control" placeholder="Enter Title" #title>
@@ -42,12 +43,11 @@
   <div class="container-fluid text-center bg-light border"><h1><span
         style="color:black;font-family: cursive;">Our Popular Products</span></h1></div>
   <ul>
-    <li *ngFor="let product of Product.products">
-      <div routerLink="/product/{{product.id}}">
+    <li *ngFor="let product of Product.products;">
+      <div>
         <a>
-          <img src="{{product.thumbnail}}">
-
-          <div class="content">
+          <img  routerLink="/product/{{product.id}}" src="{{product.thumbnail}}">
+        <div class="content">
             <div class="name">
               {{product.title}}
             </div>
@@ -56,7 +56,7 @@
                 <button routerLink="/editdata" class="btn btn-primary btn-lg">Edit</button>
               </div>
               <div class="col-sm-6">
-                <button class="btn btn-danger btn-lg">Delete</button>
+                <button class="btn btn-danger btn-lg">delete</button>
               </div>
             </div>
           </div>
@@ -66,7 +66,7 @@
   </ul>
   <div class="container-fluid text-center bg-light"></div>
   <ul>
-    <li *ngFor="let item of newData">
+    <li *ngFor="let item of newData,index as i">
       <div routerLink="/product/{{item.id}}">
         <a>
           <img src="{{item.thumbnail}}">
