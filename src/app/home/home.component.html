@@ -53,7 +53,7 @@
             <div class="row mt-3">
               <div class="col-sm-6">
                 <button class="btn btn-primary btn-lg btn btn-lg btn-warning" data-bs-toggle="modal"
-                data-bs-target="#editModal">Edit</button>
+                data-bs-target="#editModal" (click)="editData(product)">Edit</button>
               </div>
               <div class="col-sm-6">
                 <button class="btn btn-danger btn-lg" (click)="deleteData(i)">delete</button>
@@ -74,21 +74,22 @@
         </div>
         <div class="row">
           <div class="col-lg-12">
-          <form>
+          <form #useForm="ngForm" (ngSubmit)="onSubmit(useForm.value)">
             <div class="mb-4 m-5">
               <img [src]="url" height="100px" width="100px">
-              <input type="file" (change)="onselectFile($event)" class="form-control" #thumbnail>
+              <input type="file" (change)="onselectFile($event)" name="thumbnail" class="form-control" [(ngModel)]="neweditData.thumbnail">
             </div>
             <div class="mb-4">
-              <input type="text"  class="form-control" placeholder="Enter Title" #title>
+              <input type="text"  class="form-control" name="title" placeholder="Enter Title" [(ngModel)]="neweditData.title">
             </div>
           </form>
-        </div>
+
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary"
             data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-warning" (click)="updateData(title.value,thumbnail.value)">Update Data</button>
+          <button type="button" class="btn btn-warning">Update Data</button>
         </div>
+      </div>
       </div>
       </div>
     </div>

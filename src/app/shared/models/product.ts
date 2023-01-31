@@ -15,3 +15,7 @@ export class product {
   images!:string;
   products: any;
 }
+export class nproduct{
+  title!:string;
+  thumbnail!:string;
+}

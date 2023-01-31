@@ -9,6 +9,7 @@ import { product } from '../shared/models/product';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  neweditData: product['products'] = [];
   url = '';
   Product: product['products'] = [];
   constructor(private productService: ProductService) {
@@ -19,7 +20,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
 
   }
-  addData(name:string,image:string) {
+  addData(name:string,image:any) {
    this.Product['products'].push({title:name,thumbnail:this.url});
    console.log("Data Added successfully");
 
@@ -29,7 +30,7 @@ export class HomeComponent implements OnInit {
       let reader = new FileReader();
       reader.readAsDataURL(e.target.files[0]);
       reader.onload = (event: any) => {
-        this.url = event.target.result;
+      this.url = event.target.result;
       }
     }
   }
@@ -38,7 +39,15 @@ export class HomeComponent implements OnInit {
   console.log(this.Product);
   console.log('delete successfulyy');
   }
-  updateData(name:string,image:string){
-  
+  onSubmit(name:product){
+  this.neweditData.thumbnail = this.url;
+  this.neweditData.title = name.title;
   }
+
+editData(id:product){
+this.neweditData = id;
+console.log(this.neweditData);
+this.url = this.neweditData.thumbnail;
+
+}
 }
