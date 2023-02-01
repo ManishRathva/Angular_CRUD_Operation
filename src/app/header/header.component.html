@@ -6,8 +6,8 @@
     <span>My Shoping Cart</span>
     <span class="example-spacer"></span>
       <div class="container-fluid">
-        <input #s type="text" placeholder="Search Products Items">
-        <button>Search</button>
+        <input #s  type="text" placeholder="Search Products Items" (keyup)="searchProduct($event)">
+        <button  (click)="submitData(s.value)">Search</button>
       </div>
     <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
       <mat-icon>favorite</mat-icon>

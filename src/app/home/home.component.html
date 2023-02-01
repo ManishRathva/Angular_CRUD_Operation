@@ -1,8 +1,12 @@
 <app-header></app-header>
 <div>
   <div class="text-center">
-    <button type="button" class="btn btn-lg btn-warning" data-bs-toggle="modal"
-      data-bs-target="#exampleModal">
+    <button
+      type="button"
+      class="btn btn-lg btn-warning"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+    >
       + Add Product
     </button>
   </div>
@@ -13,50 +17,91 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Add New Product</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"
-            aria-label="Close"></button>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
         </div>
         <div class="row">
           <div class="col-lg-12">
-          <form>
-            <div class="mb-4 m-5">
-              <img [src]="url" height="100px" width="100px">
-              <input type="file" (change)="onselectFile($event)" class="form-control" #thumbnail>
-            </div>
-            <div class="mb-4">
-              <input type="text"  class="form-control" placeholder="Enter Title" #title>
-            </div>
-          </form>
+            <form>
+              <div class="mb-4 m-5">
+                <img [src]="url" height="100px" width="100px" />
+                <input
+                  type="file"
+                  (change)="onselectFile($event)"
+                  class="form-control"
+                  #thumbnail
+                />
+              </div>
+              <div class="mb-4">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Enter Title"
+                  #title
+                />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-warning"
+              (click)="addData(title.value, thumbnail.value)"
+            >
+              Submit Data
+            </button>
+          </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary"
-            data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-warning" (click)="addData(title.value,thumbnail.value)">Submit Data</button>
-        </div>
-      </div>
       </div>
     </div>
   </div>
 </div>
 <div class="container-fluid bg-light mt-3">
-  <div class="container-fluid text-center bg-light border"><h1><span
-        style="color:black;font-family: cursive;">Our Popular Products</span></h1></div>
+  <div class="container-fluid text-center bg-light border">
+    <h1>
+      <span style="color: black; font-family: cursive"
+        >Our Popular Products</span
+      >
+    </h1>
+  </div>
   <ul>
-    <li *ngFor="let product of Product.products;  let i = index;">
+    <li *ngFor="let product of Product.products; let i = index">
       <div>
         <a>
-          <img  routerLink="/product/{{product.id}}" src="{{product.thumbnail}}">
-        <div class="content">
+          <img
+            routerLink="/product/{{ product.id }}"
+            src="{{ product.thumbnail }}"
+          />
+          <div class="content">
             <div class="name">
-              {{product.title}}
+              {{ product.title }}
             </div>
             <div class="row mt-3">
               <div class="col-sm-6">
-                <button class="btn btn-primary btn-lg btn btn-lg btn-warning" data-bs-toggle="modal"
-                data-bs-target="#editModal" (click)="editData(product)">Edit</button>
+                <button
+                  class="btn btn-primary btn-lg btn btn-lg btn-warning"
+                  data-bs-toggle="modal"
+                  data-bs-target="#editModal"
+                  (click)="editData(product)"
+                >
+                  Edit
+                </button>
               </div>
               <div class="col-sm-6">
-                <button class="btn btn-danger btn-lg" (click)="deleteData(i)">delete</button>
+                <button class="btn btn-danger btn-lg" (click)="deleteData(i)">
+                  delete
+                </button>
               </div>
             </div>
           </div>
@@ -69,28 +114,50 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">update Product</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"
-            aria-label="Close"></button>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
         </div>
         <div class="row">
           <div class="col-lg-12">
-          <form #useForm="ngForm" (ngSubmit)="onSubmit(useForm.value)">
-            <div class="mb-4 m-5">
-              <img [src]="url" height="100px" width="100px">
-              <input type="file" (change)="onselectFile($event)" name="thumbnail" class="form-control" [(ngModel)]="neweditData.thumbnail">
-            </div>
-            <div class="mb-4">
-              <input type="text"  class="form-control" name="title" placeholder="Enter Title" [(ngModel)]="neweditData.title">
-            </div>
-          </form>
-
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary"
-            data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-warning">Update Data</button>
+            <form #useForm="ngForm" (ngSubmit)="onSubmit(useForm.value)">
+              <div class="mb-4 m-5">
+                <img [src]="url" height="100px" width="100px" />
+                <input
+                  type="file"
+                  (change)="onselectFile($event)"
+                  name="thumbnail"
+                  class="form-control-input"
+                  [ngModel]="url"
+                />
+              </div>
+              <div class="mb-4">
+                <input
+                  type="text"
+                  class="form-control-input"
+                  name="title"
+                  placeholder="Enter Title"
+                  [ngModel]="neweditData.title"
+                />
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button type="submit" class="btn btn-warning">
+                  Update Data
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
-      </div>
-      </div>
       </div>
     </div>
   </div>

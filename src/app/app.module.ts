@@ -9,9 +9,10 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductComponent } from './product/product.component';
-import { SearchComponent } from './search/search.component';
 import {MatButtonModule} from '@angular/material/button';
 import {FormsModule} from '@angular/forms';
+import { SearchComponent } from './search/search.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 
@@ -24,6 +25,8 @@ import {FormsModule} from '@angular/forms';
     HomeComponent,
     ProductComponent,
     SearchComponent,
+
+
 ],
   imports: [
     BrowserModule,
@@ -32,7 +35,9 @@ import {FormsModule} from '@angular/forms';
     MatIconModule,
     HttpClientModule,
     MatButtonModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

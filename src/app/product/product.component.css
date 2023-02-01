@@ -8,10 +8,6 @@
   width:10rem;
   border: solid black 2px;
 }
-.imges:hover{
-  cursor: pointer;
-  height:10rem;
-}
 strong{
   color:blue
 }

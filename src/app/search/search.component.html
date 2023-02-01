@@ -1,0 +1,29 @@
+<app-header></app-header>
+<div>
+<ul>
+  <li *ngFor="let product of searchResult.products |
+  paginate: {
+  itemsPerPage: 6,
+  currentPage: page,
+  totalItems:totalLength
+}">
+    <div>
+      <a>
+        <img
+          routerLink="/product/{{ product.id}}"
+          src="{{ product.thumbnail }}"
+        />
+        <div class="content">
+          <div class="name">
+            {{ product.title }}
+          </div>
+        </div>
+      </a>
+    </div>
+  </li>
+</ul>
+</div>
+<div class="container ">
+<pagination-controls class="text-center p-2" (pageChange)="page = $event"></pagination-controls>
+</div>
+

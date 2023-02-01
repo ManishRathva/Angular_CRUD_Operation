@@ -15,5 +15,8 @@ export class ProductService {
   getProductById(productId: string) {
     return this.http.get<product>(`https://dummyjson.com/products/${productId}`)
   }
+  searchProduct(query:string){
+    return this.http.get<product['products']>(`https://dummyjson.com/products/search?q=${query}`)
+  }
 }
 

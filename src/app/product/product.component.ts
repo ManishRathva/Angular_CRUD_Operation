@@ -9,7 +9,9 @@ import { product } from '../shared/models/product';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit{
+isHide:boolean = true;
 Product! : product;
+url='';
 constructor(private active: ActivatedRoute,private productServices:ProductService){}
 ngOnInit(): void {
       let productId = this.active.snapshot.paramMap.get('productId')
@@ -17,5 +19,8 @@ ngOnInit(): void {
       this.Product = result as product;
     });
 }
-
+images(data:any){
+this.url =data;
+this.isHide = false;
+}
 }

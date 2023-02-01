@@ -4,11 +4,13 @@
 </div>
 <div class="row border border-dark shadow rounded m-3 mt-0">
 <div *ngIf="Product" class="container col-lg-3 text-center">
-    <img [src]="Product.thumbnail" [alt]="Product.title">
+    <img [src]="Product.thumbnail" [alt]="Product.title" *ngIf="isHide">
+    <img [src]="url" *ngIf="!isHide">
 </div>
 <div class="col-lg-3">
   <div *ngFor="let img of Product.images">
-   <img class="imges" src="{{img}}">
+   <img class="imges" src="{{img}}" (click)="images(img)">
+
   </div>
 </div>
 <div class="details col-lg-6">

@@ -4,12 +4,13 @@ import { HomeComponent } from './home/home.component';
 import { ProductComponent } from './product/product.component';
 import { SearchComponent } from './search/search.component';
 
-
 const routes: Routes = [
-
   {path :'',component:HomeComponent},
-  {path :'search/:productId',component:SearchComponent},
   {path :'product/:productId',component :ProductComponent},
+  {path :'search/:query',component : SearchComponent},
+  {path :'search',component : SearchComponent},
+
+
 ];
 
 @NgModule({
