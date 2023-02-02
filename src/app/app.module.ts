@@ -10,7 +10,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductComponent } from './product/product.component';
 import {MatButtonModule} from '@angular/material/button';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { SearchComponent } from './search/search.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 
@@ -25,8 +25,6 @@ import {NgxPaginationModule} from 'ngx-pagination';
     HomeComponent,
     ProductComponent,
     SearchComponent,
-
-
 ],
   imports: [
     BrowserModule,
@@ -37,6 +35,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
     MatButtonModule,
     FormsModule,
     NgxPaginationModule,
+    ReactiveFormsModule,
 
   ],
   providers: [],
