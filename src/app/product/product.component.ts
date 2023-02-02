@@ -10,7 +10,7 @@ import { product } from '../shared/models/product';
 })
 export class ProductComponent implements OnInit{
 isHide:boolean = true;
-Product! : product;
+Product :product['products']=[];
 url='';
 constructor(private active: ActivatedRoute,private productServices:ProductService){}
 ngOnInit(): void {
@@ -19,7 +19,7 @@ ngOnInit(): void {
       this.Product = result as product;
     });
 }
-images(data:any){
+immg(data:any){
 this.url =data;
 this.isHide = false;
 }
