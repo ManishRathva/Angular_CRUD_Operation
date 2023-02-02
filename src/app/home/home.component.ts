@@ -8,6 +8,7 @@ import { product } from '../shared/models/product';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
+
   neweditData: product['products'] =[];
   url = '';
   Product: product['products']=[];

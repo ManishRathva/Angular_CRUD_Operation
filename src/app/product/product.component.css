@@ -25,10 +25,8 @@ strong{
 
   img{
     border-radius:1.5rem;
-    flex: 1 0;
-    object-fit: cover;
-    height: 25rem;
-    margin-left:2rem;
+    height:25rem;
+    width:100%;
   }
 
   .details{
