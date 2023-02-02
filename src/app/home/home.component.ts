@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { product } from '../shared/models/product';
+import { FormGroup ,FormControl,Validators,FormBuilder} from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,10 @@ import { product } from '../shared/models/product';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-
+  addingData = new FormGroup({
+    thumbnail: new FormControl('',Validators.required),
+   title: new FormControl('',Validators.required),
+ })
   neweditData: product['products'] =[];
   url = '';
   Product: product['products']=[];
@@ -18,8 +22,9 @@ export class HomeComponent implements OnInit {
     });
   }
   ngOnInit(): void {}
-  addData(name: string, image: any) {
-    this.Product['products'].push({ title: name, thumbnail: this.url });
+  addData(add:any) {
+    console.log(add);
+    this.Product['products'].push({ title:add, thumbnail:this.url });
     console.log('Data Added successfully');
   }
   onselectFile(e: any) {
