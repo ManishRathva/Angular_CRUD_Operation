@@ -2,11 +2,14 @@
   text-decoration:none;
 }
 .imges{
-  margin-top:1.7rem;
-  height:3.5rem;
+  margin-top:0.5rem;
+  height:4rem;
   border-radius:0;
   width:10rem;
   border: solid black 2px;
+}
+.imges:hover{
+  border-color: blue;
 }
 strong{
   color:blue

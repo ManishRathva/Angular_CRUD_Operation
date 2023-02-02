@@ -30,28 +30,26 @@
                 formControlName="thumbnail"
                   type="file"
                   (change)="onselectFile($event)"
-                  class="form-control"
-
-                />
+                  class="form-control">
+                  <span class="eror" *ngIf="thumbnail && thumbnail.invalid && thumbnail.touched">File is Required</span>
               </div>
               <div class="form-group">
                 <input
                 formControlName="title"
                   type="text"
                   class="form-control"
-                  placeholder="Enter Title"
-
-                />
+                  placeholder="Enter Title">
+                  <span class="eror" *ngIf="title && title.invalid && title.touched">Title is Required</span>
+                </div>
               </div>
+              <div class="footer mb-3">
+                <button type="button" class="btn btn-danger"
+                  data-bs-dismiss="modal">
+                  Close
+                </button>&nbsp;
+                <button type="submit" class="btn btn-warning" [disabled]="addingData.invalid">Submit Data</button>
               </div>
             </form>
-          </div>
-          <div class="footer mb-3">
-            <button type="button" class="btn btn-danger"
-              data-bs-dismiss="modal">
-              Close
-            </button>&nbsp;
-            <button type="button" class="btn btn-warning">Submit Data</button>
           </div>
         </div>
       </div>
@@ -111,8 +109,8 @@
         </div>
         <div class="row">
           <div class="col-lg-12">
-            <form #useForm="ngForm" (ngSubmit)="onSubmit(useForm.value)">
-              <div class="mb-4 m-5 text-center">
+            <form #editForm="ngForm" (ngSubmit)="onSubmit(editForm.value)">
+              <div class="form-group mb-4 m-5 text-center">
                 <div class="text-center mb-5">
                 <img [src]="url" height="100px" width="100px" />
                 </div>
@@ -122,6 +120,8 @@
                   name="thumbnail"
                   class="form-control"
                 />
+                </div>
+                <div class="form-group mb-2 m-5 text-center">
                 <input
                   type="text"
                   class="form-control"

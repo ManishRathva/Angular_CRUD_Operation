@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { product } from '../shared/models/product';
-import { FormGroup ,FormControl,Validators,FormBuilder} from '@angular/forms';
+import { FormGroup ,FormControl,Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -10,10 +10,10 @@ import { FormGroup ,FormControl,Validators,FormBuilder} from '@angular/forms';
 })
 export class HomeComponent implements OnInit {
   addingData = new FormGroup({
-    thumbnail: new FormControl('',Validators.required),
-   title: new FormControl('',Validators.required),
- })
-  neweditData: product['products'] =[];
+  thumbnail: new FormControl('',[Validators.required]),
+  title: new FormControl('',[Validators.required]),
+ });
+  neweditData: product['products'] = [];
   url = '';
   Product: product['products']=[];
   constructor(private productService: ProductService) {
@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {}
   addData(add:any) {
     console.log(add);
-    this.Product['products'].push({ title:add, thumbnail:this.url });
+    this.Product['products'].push({ title:add.title, thumbnail:this.url });
     console.log('Data Added successfully');
   }
   onselectFile(e: any) {
@@ -48,5 +48,11 @@ export class HomeComponent implements OnInit {
     this.neweditData.thumbnail = this.url;
     this.neweditData.title = name.title;
     this.url ='';
+  }
+  get thumbnail(){
+    return this.addingData.get('thumbnail');
+  }
+  get title(){
+    return this.addingData.get('title');
   }
 }

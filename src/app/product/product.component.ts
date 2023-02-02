@@ -10,7 +10,7 @@ import { product } from '../shared/models/product';
 })
 export class ProductComponent implements OnInit{
 isHide:boolean = true;
-Product :product['products']=[];
+Product:product['products']=[];
 url='';
 constructor(private active: ActivatedRoute,private productServices:ProductService){}
 ngOnInit(): void {

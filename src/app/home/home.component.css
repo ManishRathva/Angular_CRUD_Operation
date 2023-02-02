@@ -99,3 +99,8 @@ button:hover{
   margin-left:19rem;
   margin-bottom:1rem;
 }
+.eror{
+  color: red;
+  margin-top: 0;
+  font-weight: 900;
+}
